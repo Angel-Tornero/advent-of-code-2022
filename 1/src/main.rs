@@ -34,4 +34,5 @@ fn main() {
         .collect::<Vec<_>>();
     result.sort_by(|a, b| b.cmp(a));
     println!("The result is: {}", result[0] + result[1] + result[2]);
+    // println!("The result is: {}", result.iter().take(3).sum::<usize>().unwrap());
 }
