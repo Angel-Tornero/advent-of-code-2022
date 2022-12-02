@@ -1,11 +1,14 @@
 use std::fs::read_to_string;
 
-// Part one
-
-/*
 fn main() {
     let content = read_to_string("text/input.txt").unwrap();
+    println!("The result for part 1 is: {}", first_star(content.clone()));
+    println!("The result part 2 is: {}", second_star(content));
+}
 
+// Part one
+
+fn first_star(content: String) -> usize {
     let result = content
         .split("\n\n")
         .map(|elf| {
@@ -15,16 +18,13 @@ fn main() {
         })
         .max()
         .unwrap();
-    println!("The result is: {}", result);
+    return result;
 }
-*/
 
 // Part two
 
-fn main() {
-    let content = read_to_string("text/input.txt").unwrap();
-
-    let mut result: Vec<_> = content
+fn second_star(content: String) -> usize {
+  let mut result: Vec<_> = content
         .split("\n\n")
         .map(|elf| {
             elf.split("\n")
@@ -33,6 +33,6 @@ fn main() {
         })
         .collect::<Vec<_>>();
     result.sort_by(|a, b| b.cmp(a));
-    println!("The result is: {}", result[0] + result[1] + result[2]);
-    // println!("The result is: {}", result.iter().take(3).sum::<usize>().unwrap());
+    return result[0] + result[1] + result[2];
+    // return result.iter().take(3).sum::<usize>().unwrap();
 }
